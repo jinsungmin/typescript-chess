@@ -34,10 +34,10 @@ const getLoggedInUserInfo = async function (req, res) {
 		await validateJwt(req, res);
 
 		// 사용자 브라우저 토큰을 가져와 접속한 사용자 id를 읽음
-		let accesstoken = req.cookies.access_token || null;
-		const decoded_uid = jwt.decode(accesstoken, process.env.JWT_SECRET).uid;
-		const user = await UserModel.findOne({
-			_id: decoded_uid
+            let accesstoken = req.cookies.access_token || null;
+            const decoded_uid = jwt.decode(accesstoken, process.env.JWT_SECRET).uid;
+            const user = await UserModel.findOne({
+                _id: decoded_uid
 		})
 
 		return user;

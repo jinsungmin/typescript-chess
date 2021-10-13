@@ -68,7 +68,6 @@ router.post("/register", isNotLoggedIn, async (req, res, next) => {
 // 토큰을 생성하고 사용자에게 반환한다 (httpOnly cookies)
 router.post("/login", isNotLoggedIn, async (req, res, next) => {
   const { email, password } = req.body;
-
   // 이메일로 사용자 조회
   try {
     const user = await UserModel.findOne({ 'email': email });
